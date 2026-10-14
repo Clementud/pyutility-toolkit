@@ -1,0 +1,97 @@
+PROJECT: PYUTILITY TOOLKIT
+
+START
+
+```
+DISPLAY welcome message
+
+REPEAT
+
+    DISPLAY main menu
+    DISPLAY option 1: Simple Interest Calculator
+    DISPLAY option 2: Temperature Converter
+    DISPLAY option 3: Receipt Calculator
+    DISPLAY option 4: Age Calculator
+    DISPLAY option 5: Exit
+
+    GET user's menu choice
+
+    IF choice is 1 THEN
+        GET principal amount
+        GET annual interest rate
+        GET time in years
+
+        IF any value is negative THEN
+            DISPLAY error message
+        ELSE
+            CALCULATE interest = principal * rate * time / 100
+            CALCULATE total amount = principal + interest
+            DISPLAY interest and total amount
+        END IF
+
+    ELSE IF choice is 2 THEN
+        DISPLAY temperature conversion options
+        GET conversion choice
+        GET temperature
+
+        IF choice is Celsius to Fahrenheit THEN
+            CALCULATE Fahrenheit = Celsius * 9 / 5 + 32
+            DISPLAY result
+        ELSE IF choice is Fahrenheit to Celsius THEN
+            CALCULATE Celsius = (Fahrenheit - 32) * 5 / 9
+            DISPLAY result
+        ELSE
+            DISPLAY invalid conversion message
+        END IF
+
+    ELSE IF choice is 3 THEN
+        GET number of items
+
+        IF number of items is not positive THEN
+            DISPLAY error message
+        ELSE
+            SET total to zero
+
+            FOR each item
+                GET item name
+                GET item price
+                GET item quantity
+
+                VALIDATE the item information
+
+                IF information is invalid THEN
+                    DISPLAY error message
+                    STOP processing the receipt
+                ELSE
+                    CALCULATE item total = price * quantity
+                    ADD item total to receipt total
+                    DISPLAY item total
+                END IF
+            END FOR
+
+            DISPLAY receipt total
+        END IF
+
+    ELSE IF choice is 4 THEN
+        GET birth year
+        GET current year
+
+        IF birth year is invalid THEN
+            DISPLAY error message
+        ELSE
+            CALCULATE approximate age = current year - birth year
+            DISPLAY approximate age
+        END IF
+
+    ELSE IF choice is 5 THEN
+        DISPLAY goodbye message
+        EXIT LOOP
+
+    ELSE
+        DISPLAY invalid menu choice message
+    END IF
+
+UNTIL user chooses to exit
+```
+
+END
